@@ -23,6 +23,12 @@ const StyledButton = styled(Button)`
   }
 `
 
+const EnterChip = styled(Chip)`
+  .MuiChip-icon {
+    color: ${props => props.theme.palette.primary.contrastText};
+  }
+`
+
 const SkipToContent = (): ReactElement => {
   const { t } = useTranslation()
   const [backdropOpen, setBackdropOpen] = useState(false)
@@ -36,7 +42,7 @@ const SkipToContent = (): ReactElement => {
         onFocus={() => setBackdropOpen(true)}
         onBlur={() => setBackdropOpen(false)}>
         {t($ => $.common.a11y.skipToContent)}
-        <Chip label='ENTER' color='primary' icon={<KeyboardReturnIcon />} size='small' />
+        <EnterChip label='ENTER' color='primary' icon={<KeyboardReturnIcon />} size='small' />
       </StyledButton>
     </>
   )
